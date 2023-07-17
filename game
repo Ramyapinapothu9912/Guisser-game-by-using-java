@@ -1,0 +1,40 @@
+package com.techlabs.ararys;
+import java.util.Scanner;
+public class re {
+	public static void main(String[] args)
+	{
+	System.out.println("hellow everyy one welcome to game gusser :");
+	System.out.println("shelle we start the game");
+	System.out.println("Enter the String by the owener:");
+	System.out.println("here a game u have to guess the character if it is present it will be reveld");
+	Scanner sc=new Scanner(System.in);
+	String str=sc.nextLine();
+	int strlen=str.length();
+	System.out.println("length of a string:"+strlen);
+	String revealstr=new String(new char[strlen]).replace('\0','-');
+	System.out.println("replace of a string:"+revealstr);
+	while(revealstr.contains("-"))
+	{
+		System.out.println("enter the character ur gussing:");
+		char guss=sc.nextLine().charAt(0);
+		boolean isChar=false;
+		for(int i=0;i<strlen;i++) {
+			if(str.charAt(i)==guss)
+			{
+				if(revealstr.charAt(i)=='-') {
+				revealstr=revealstr.substring(0,i)+guss+revealstr.substring(i+1);
+				isChar=true;
+				break;
+				}
+			}
+		}
+		if(!isChar) {
+			System.out.println("Character '"+guss+"' doesnot match the striing");
+			
+		}
+		System.out.println("Revealed String:"+revealstr);
+	} 
+	System.out.println("reaveled string:"+revealstr);
+	System.out.println("thank you for playing");
+	}
+}
